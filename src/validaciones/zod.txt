@@ -1,0 +1,11 @@
+cat > src/validaciones/usuario.schema.js << 'EOF'
+const { z } = require('zod');
+
+const usuarioSchema = z.object({
+  nombre: z.string().min(1, 'El nombre es obligatorio'),
+  correo: z.string().email('Formato de correo inválido'),
+  password: z.string().min(6, 'La contraseña debe tener al menos 6 caracteres'),
+});
+
+module.exports = { usuarioSchema };
+EOF
