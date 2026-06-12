@@ -1,0 +1,26 @@
+cat > src/documentacion-api/swagger.config.js << 'EOF'
+const swaggerOptions = {
+  swagger: {
+    info: {
+      title: 'MicroFlux Backend API',
+      description: 'Documentación de la API del sistema MicroFlux',
+      version: '1.0.0',
+    },
+    host: 'localhost:3000',
+    schemes: ['http'],
+    consumes: ['application/json'],
+    produces: ['application/json'],
+  },
+};
+
+const swaggerUiOptions = {
+  routePrefix: '/documentacion',
+  uiConfig: {
+    docExpansion: 'full',
+    deepLinking: false,
+  },
+  staticCSP: true,
+};
+
+module.exports = { swaggerOptions, swaggerUiOptions };
+EOF
